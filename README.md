@@ -1,2 +1,2 @@
 # Wayland
-Wayland configs for waybar and sway 🌴
+Wayland configs for waybar and sway! 🌴
