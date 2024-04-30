@@ -1,7 +1,13 @@
 openssh-server	
-neovim
+nvim
 sddm
 thunar
 xsel
 xwayland
 zram-tools
+dhcpcd
+keepassxc
+anki
+slurp
+grim
+okular
