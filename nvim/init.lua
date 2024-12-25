@@ -11,6 +11,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+
 require('lazy').setup({
 	require 'plugins.neotree',
 	require 'plugins.bufferline',
@@ -19,6 +25,7 @@ require('lazy').setup({
 	require 'plugins.lualine',
 	require 'plugins.telescope',
     require 'plugins.autocompletion',
-	require 'plugins.lsp'
+	require 'plugins.lsp',
+	require 'plugins.indent',
 	--require 'plugins.cmp',
 })
