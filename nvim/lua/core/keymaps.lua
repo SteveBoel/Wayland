@@ -1,14 +1,14 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
---disable spacebar default 
+--disable spacebar default
 vim.keymap.set({'n','v'},'<space>', '<nop>', {silent = true})
 
 --concicnes
 local opts = {noremap = true, silent = true}
 
 --fast into normal mode
-vim.keymap.set("i", "jk", "<ESC>", opts)
+vim.keymap.set("i", "jk", "<ESC>:w<Cr>", opts)
 
 --vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
