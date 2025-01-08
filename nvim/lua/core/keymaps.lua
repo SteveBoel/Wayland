@@ -7,8 +7,22 @@ vim.keymap.set({'n','v'},'<space>', '<nop>', {silent = true})
 --concicnes
 local opts = {noremap = true, silent = true}
 
+--edit end of word
+vim.keymap.set('n', '<leader>i', 'whi', opts)
+
+--edit begin of word
+vim.keymap.set('n', '<leader>b', 'bi', opts)
+
 --fast into normal mode
-vim.keymap.set("i", "jk", "<ESC>:w<Cr>", opts)
+vim.keymap.set("i", "jk", function()
+  vim.api.nvim_command("write") -- Save the file
+  vim.api.nvim_input("<ESC>") -- Exit insert mode
+end, opts)
+
+-- remove highlights from search
+vim.keymap.set('n', '<leader>kj', function()
+  vim.cmd('noh') -- Executes :noh command programmatically
+end, opts)
 
 --vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)

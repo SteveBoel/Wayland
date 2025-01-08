@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 --vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { underline = false })
 
 local isLspDiagnosticsVisible = true
-vim.keymap.set("n", "<leader>ww", function()
+vim.keymap.set("n", "<leader>11", function()
     isLspDiagnosticsVisible = not isLspDiagnosticsVisible
     vim.diagnostic.config({
         virtual_text = isLspDiagnosticsVisible,
@@ -56,4 +56,5 @@ require('lazy').setup({
     require 'plugins.autocompletion',
 	require 'plugins.lsp',
 	require 'plugins.indent',
+	require 'plugins.toggleterminal',
 })
