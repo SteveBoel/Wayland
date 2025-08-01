@@ -14,10 +14,10 @@ vim.keymap.set('n', '<leader>i', 'whi', opts)
 vim.keymap.set('n', '<leader>b', 'bi', opts)
 
 --fast into normal mode
-vim.keymap.set("i", "jk", function()
-  vim.api.nvim_command("write") -- Save the file
-  vim.api.nvim_input("<ESC>") -- Exit insert mode
-end, opts)
+vim.keymap.set("i", "aa", "<ESC>", opts)
+--  --vim.api.nvim_command("write") -- Save the file
+--  vim.api.nvim_input("<ESC>") -- Exit insert mode
+--end, opts)
 
 -- remove highlights from search
 vim.keymap.set('n', '<leader>kj', function()
