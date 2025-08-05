@@ -1,8 +1,12 @@
+local isLspDiagnosticsVisible = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 --disable spacebar default
 vim.keymap.set({'n','v'},'<space>', '<nop>', {silent = true})
+
+-- jk action
+vim.keymap.set("i", "jk", "<Esc>:w<CR>", { noremap = true, silent = true })
 
 --concicnes
 local opts = {noremap = true, silent = true}
@@ -53,9 +57,14 @@ vim.keymap.set('v', 'p', '"_dP', opts)
 
 --toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
-
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+vim.keymap.set("n", "<leader>11", function()
+    isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+    vim.diagnostic.config({
+        virtual_text = isLspDiagnosticsVisible,
+        underline = isLspDiagnosticsVisible,
+        signs = isLspDiagnosticsVisible, -- Toggle warning icons
+    }) end)
