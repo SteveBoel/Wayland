@@ -4,8 +4,8 @@ require 'core.lazy'
 require 'core.autocmd'
 
 require("lazy").setup({
-  require 'plugins.neotree',
-  ----require 'plugins.bufferline',
+  --require 'plugins.neotree',
+  --require 'plugins.bufferline',
   require 'plugins.colortheme',
   require 'plugins.haskell',
   require 'plugins.treesitter',
