@@ -15,10 +15,25 @@ return {
 			},
 		},
 		config = function()
-			require 'lspconfig'.lua_ls.setup {}
-			require 'lspconfig'.csharp_ls.setup {}
+			--require 'lspconfig'.lua_ls.setup {}
+			--require 'lspconfig'.csharp_ls.setup {}
+			vim.lsp.enable({ 'lua_ls', 'csharp_ls' })
+
+			-- remove warnign global vim
+			vim.lsp.config['lua_ls'] = {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { 'vim', 'os', 'Kvim' },
+						},
+					},
+				},
+			}
 
 			vim.api.nvim_create_autocmd('LspAttach', {
+				-- somehow this works,
+				vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>"),
+
 				group = vim.api.nvim_create_augroup('my.lsp', {}),
 				callback = function(args)
 					local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
