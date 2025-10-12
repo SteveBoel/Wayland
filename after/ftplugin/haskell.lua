@@ -1,0 +1,14 @@
+--vim.api.nvim_create_autocmd("FileType", {
+--  pattern = "haskell",
+--  callback = function()
+--    vim.diagnostic.config({
+--      severity_sort = true,
+--      virtual_text = {
+--        severity = { min = vim.diagnostic.severity.ERROR },
+--      },
+--      signs = {
+--        severity = { min = vim.diagnostic.severity.ERROR },
+--      },
+--    })
+--  end,
+--})
