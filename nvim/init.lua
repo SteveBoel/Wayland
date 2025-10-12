@@ -15,5 +15,6 @@ require("lazy").setup({
 	require 'plugins.toggleterminal',
 	require 'plugins.mason',
 	require 'plugins.oil',
-	require 'plugins.fugitive'
+	require 'plugins.fugitive',
+	require 'plugins.roslyn'
 })
