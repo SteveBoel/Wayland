@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd('UILeave', {
 vim.api.nvim_create_autocmd('LspAttach', {
 	-- somehow this works,
 	vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>"),
+	vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>"),
 
 	group = vim.api.nvim_create_augroup('my.lsp', {}),
 	callback = function(args)

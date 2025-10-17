@@ -1,5 +1,5 @@
 return {
-	cmd = {'roslyn'},
+	cmd = { 'roslyn' },
 	--root_markers = {".luarc.json"},
-	filetypes = {'cs'}
+	filetypes = { 'cs' }
 }
